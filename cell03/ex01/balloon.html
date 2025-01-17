@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode o Balão</title>
+    <style>
+             
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Animação suave para redimensionamento e cor */
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon" id="balloon"></div>
+
+    <script>
+        // Seleciona o balão
+        const balloon = document.getElementById('balloon');
+
+        // Configurações iniciais
+        let size = 200; // Tamanho inicial do balão
+        const maxSize = 420; // Tamanho máximo antes de "explodir"
+        const minSize = 200; // Tamanho mínimo permitido
+        const colors = ['red', 'green', 'blue']; // Cores do balão
+        let colorIndex = 0; // Índice da cor atual
+
+        // Função para aumentar o tamanho e mudar a cor ao clicar
+        balloon.addEventListener('click', () => {
+            size += 10; // Aumenta o tamanho do balão
+            colorIndex = (colorIndex + 1) % colors.length; // Avança para a próxima cor
+            balloon.style.backgroundColor = colors[colorIndex]; // Aplica a nova cor
+            balloon.style.width = `${size}px`; // Define a largura do balão
+            balloon.style.height = `${size}px`; // Define a altura do balão
+
+            // Se o tamanho exceder o limite, "explode" o balão
+            if (size > maxSize) {
+                size = minSize; // Volta ao tamanho original
+                colorIndex = 0; // Volta à cor inicial (vermelho)
+                balloon.style.backgroundColor = colors[colorIndex]; // Aplica a cor inicial
+                alert('Boom! O balão explodiu!'); 
+            }
+        });
+
+        // Função para diminuir o tamanho e mudar a cor ao sair do balão
+        balloon.addEventListener('mouseleave', () => {
+            size = Math.max(size - 5, minSize); // Diminui o tamanho sem passar do limite mínimo
+            colorIndex = (colorIndex - 1 + colors.length) % colors.length; // Retrocede para a cor anterior
+            balloon.style.backgroundColor = colors[colorIndex]; // Aplica a nova cor
+            balloon.style.width = `${size}px`; // Define a largura do balão
+            balloon.style.height = `${size}px`; // Define a altura do balão
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Configuração das seções de paralaxe */
+.parallax {
+    height: 100vh; /* Altura total da janela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed; /* Cria o efeito paralaxe */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Primeira imagem de fundo */
+.parallax-1 {
+    background-image: url('picolesmenino.jpg'); /* Substitua pelo caminho da sua imagem */
+}
+
+/* Segunda imagem de fundo */
+.parallax-2 {
+    background-image: url('picoles.jpg'); /* Substitua pelo caminho da sua imagem */
+}
+
+/* Mensagem no centro das seções de paralaxe */
+.message {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+/* Bloco intermediário */
+.content {
+    background-color: #080808;
+    color: #ce25a3;
+    text-align: center;
+    padding: 50px 20px;
+}

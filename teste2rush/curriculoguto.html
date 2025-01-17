@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Augusto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 60px; /* Para garantir que o conteúdo não fique oculto pela navbar */
+        }
+        .navbar-nav .nav-link {
+            cursor: pointer;
+        }
+        .participant-section {
+            padding: 60px 0;
+        }
+        section {
+            min-height: 100vh; /* Para garantir que as seções tenham altura suficiente para rolar */
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a class="navbar-brand" href="#">Currículo Augusto</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#perfil">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experiencia">Experiência</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção 1: Perfil -->
+    <section id="perfil" class="participant-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <br><br><br>
+                    <img src="Guto.jpeg" alt="Foto de Augusto" class="img-fluid rounded-circle" width="200">
+                    <h1>Augusto Machado Rocha</h1>
+                    <p><strong>Cargo:</strong> Advogado | Especialização em Direito do Trabalho e Direito Tributário</p>
+                    <p><strong>Idade:</strong> 38 anos</p>
+                    <p><strong>Endereço:</strong> Juiz de Fora, Minas Gerais-MG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 2: Experiência Profissional e Habilidades -->
+    <section id="experiencia" class="participant-section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Experiência Profissional</h2>
+                    <ul>
+                        <li><strong>[Marcelo Tostes Advogados]:</strong> [Advogado contencioso trabalhista]</li>
+                        <li><strong>[Nilton Machado Advogados]:</strong> [Advogado tributário e cível]</li>
+                        <li><strong>[Machado e Rocha Sociedade de Advogados]:</strong> [Advogado tributário, cível e consumidor]</li>
+                    </ul>
+
+                    <h2>Habilidades</h2>
+                    <ul>
+                        <li>Direito Trabalhista e Tributário</li>
+                        <li>Consultoria e Assessoria Jurídica</li>
+                        <li>Gestão de Processos e Litígios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: Contato -->
+    <section id="contato" class="participant-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:augustomrocha.adv@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/augusto-machado-rocha-073737313/">LinkedIn</a></li>
+                        <li><a href="https://github.com/AugustoMRocha">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts do Bootstrap e rolagem suave -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Rolagem suave para as seções
+        $('a.nav-link').on('click', function(event) {
+            if (this.hash !== '') {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 60
+                }, 800);
+            }
+        });
+    </script>
+</body>
+</html>

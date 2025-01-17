@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .calculator {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+
+        input, select, button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5pxalert('Please, use me...');
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora Básica</h1>
+    <div class="calculator">
+        <form id="calcForm">
+            <!-- Primeiro número -->
+            <input type="number" id="leftOperand" placeholder="Número esquerdo" min="0" required>
+            
+            <!-- Operadores -->
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            
+            <!-- Segundo número -->
+            <input type="number" id="rightOperand" placeholder="Número direito" min="0" required>
+            
+            <!-- Botão para calcular -->
+            <button type="button" id="calculateButton">Try me!</button>
+        </form>
+    </div>
+
+    <script>
+        // Referência ao botão e campos de entrada
+        const calculateButton = document.getElementById('calculateButton');
+        const leftOperand = document.getElementById('leftOperand');
+        const rightOperand = document.getElementById('rightOperand');
+        const operator = document.getElementById('operator');
+
+        // Função para calcular o resultado
+        function calculate() {
+            const left = parseInt(leftOperand.value, 10); // Valor do primeiro número
+            const right = parseInt(rightOperand.value, 10); // Valor do segundo número
+            const selectedOperator = operator.value; // Operador selecionado
+
+            // Verifica se os valores são válidos
+            if (isNaN(left) || isNaN(right) || left < 0 || right < 0) {
+                alert('Error :(');
+                return;
+            }
+
+            // Lógica para cálculo
+            let result;
+            if (selectedOperator === '/' || selectedOperator === '%') {
+                if (right === 0) {
+                    alert("It’s over 9000!");
+                    console.log("It’s over 9000!");
+                    return;
+                }
+            }
+
+            switch (selectedOperator) {
+                case '+':
+                    result = left + right;
+                    break;
+                case '-':
+                    result = left - right;
+                    break;
+                case '*':
+                    result = left * right;
+                    break;
+                case '/':
+                    result = left / right;
+                    break;
+                case '%':
+                    result = left % right;
+                    break;
+                default:
+                    alert('Error :(');
+                    return;
+            }
+
+            // Exibe o resultado
+            alert(`Resultado: ${result}`);
+            console.log(`Resultado: ${result}`);
+        }
+
+        // Adiciona o evento de clique no botão
+        calculateButton.addEventListener('click', calculate);
+
+        // Exibe uma mensagem a cada 30 segundos
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
+    </script>
+</body>
+</html>
